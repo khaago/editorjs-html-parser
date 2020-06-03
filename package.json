@@ -1,0 +1,23 @@
+{
+  "name": "editorjs-html-parser",
+  "version": "0.1.0",
+  "description": "generate html from editorjs blocks",
+  "main": "parser.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaago/editorjs-html-parser.git"
+  },
+  "keywords": [
+    "editorjs",
+    "nblog"
+  ],
+  "author": "khaago",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khaago/editorjs-html-parser/issues"
+  },
+  "homepage": "https://github.com/khaago/editorjs-html-parser#readme"
+}
