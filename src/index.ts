@@ -14,14 +14,12 @@ import {
 } from "./types/editor.types";
 
 export const parse = (data: EditorJsDoc): string => {
-  // console.log(JSON.stringify(data.blocks[0].data, null, " "));
   const blocks = data.blocks;
   let html = "<div>";
   _.forEach(blocks, (block) => {
     html += parseBlock(block);
   });
   html += "</div>";
-  console.log(html)
   return html;
 };
 

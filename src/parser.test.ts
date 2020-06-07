@@ -1,6 +1,5 @@
 import { EditorJsDoc } from "types/editor.types";
 import { parse } from ".";
-
 const testDoc = {
   time: 1590972432078,
   blocks: [
