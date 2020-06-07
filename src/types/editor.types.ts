@@ -67,5 +67,5 @@ export interface Block<BlockTypes> {
 export interface EditorJsDoc {
   version: string;
   blocks: Array<Block<BlockTypes>>;
-  time: BigInteger;
+  time: number;
 }
