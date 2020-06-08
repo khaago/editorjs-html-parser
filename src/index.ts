@@ -12,10 +12,11 @@ import {
   Warning,
   Quote,
 } from "./types/editor.types";
+import { header, paragraph, image, link, list, warning, raw, quote } from "./templates/templates";
 
 export const parse = (data: EditorJsDoc): string => {
   const blocks = data.blocks;
-  let html = "<div>";
+  let html = `<div class="ej-parsed-html">`;
   _.forEach(blocks, (block) => {
     html += parseBlock(block);
   });
@@ -29,60 +30,38 @@ function parseBlock(block?: Block<BlockTypes>): string {
   switch (block.type) {
     case BlockTypes.HEADER: {
       const data = block.data as Header;
-      const headerTag = "h" + data.level;
-      return "<" + headerTag + ">" + data.text + "</" + headerTag + ">";
+      return header(data.level, data.text);
     }
     case BlockTypes.PARAGRAPH: {
       const data = block.data as Paragraph;
-      return "<p>" + data.text + "</p>";
+      return paragraph(data.text);
     }
     case BlockTypes.IMAGE: {
       const data = block.data as Image;
-      let html = '<figure><img src="' + data.file.url + '"';
-      if (data.withBorder) {
-        html += ' style="border:solid 0.5px; color=gray"';
-      }
-      // TODO implement withBackground
-      html += data.caption
-        ? "><figcaption>" + data.caption + "</figcaption></figure>"
-        : "></figure>";
-      return html;
+      return image(data.file.url, data.caption);
     }
     case BlockTypes.LINK: {
       const data = block.data as Link;
-      return '<a href="' + data.link + '">' + data.meta.description + "</a>";
+      return link(data.link, data.meta.description);
     }
     case BlockTypes.LIST: {
       const data = block.data as List;
-      let html = data.style === "ordered" ? "<ol>" : "<ul>";
-      _.forEach(data.items, (item) => {
-        html += "<li>" + item + "</li>";
-      });
-      html += data.style === "ordered" ? "</ol>" : "</ul>";
-      return html;
+      return list(data.style, data.items);
     }
     case BlockTypes.WARNING: {
       const data = block.data as Warning;
-      const style =
-        'style="white-space: pre-wrap; background: hsl(47,88%,65%);"';
-      return `<strong> !! ${data.title} !! </strong>
-            <br/>
-            <span ${style}> ${data.message} <span>`;
+      return warning(data.title, data. message);
     }
     case BlockTypes.RAW: {
       const data = block.data as Raw;
-      const style =
-        'style="white-space: pre-wrap; background: hsl(40,30%,85%);"';
-      return `<div ${style}>${data.html}</div>`;
+      return raw(data.html);
     }
     case BlockTypes.QUOTE: {
       const data = block.data as Quote;
-      return `<blockquote>
-        <p>${data.text}</p>
-        <footer>${data.caption}</footer></blockquote>`;
+      return quote(data.text, data.caption);
     }
     default: {
-      return "";
+      return `Unparseable ${JSON.stringify(block.data)}`;
     }
   }
 }
