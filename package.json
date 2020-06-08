@@ -1,6 +1,6 @@
 {
   "name": "editorjs-html-parser",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "generate html from editorjs blocks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,11 +22,10 @@
     "url": "https://github.com/khaago/editorjs-html-parser/issues"
   },
   "homepage": "https://github.com/khaago/editorjs-html-parser#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^25.2.3",
- "@types/lodash": "^4.14.155",
+    "@types/lodash": "^4.14.155",
     "@types/node": "^14.0.11",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
