@@ -5,7 +5,7 @@ export function header(level: number, text: string) : string {
 }
 
 export function paragraph(text: string): string {
-    return `<p class="ej-paragraph>${text}</p>`
+    return `<p class="ej-paragraph">${text}</p>`
 }
 
 export function image(url:string, caption?:string): string {
