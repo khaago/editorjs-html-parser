@@ -29,11 +29,11 @@ export function link(link: string, description?: string ) : string {
 }
 
 export function warning(title: string, message: string) : string {
-    return `<div><h3>${title}</h3><p>${message}</p></div>`
+    return `<div class="ej-warning"><h3>${title}</h3><p>${message}</p></div>`
 }
 
 export function raw(text: string) : string {
-    return `<div>${text}</div>`;
+    return `<pre class="ej-pre-code"><code>${text}</code></pre>`;
 }
 
 export function quote(text: string, caption:string):string  {
