@@ -16,8 +16,7 @@ export function image(url:string, caption?:string): string {
 }
 
 export function list(style?: "ordered"|"unordered", items?: Array<string>): string {
-    let html = `<div class="ej-list"> 
-    test${style === "ordered" ? "<ol>" : "<ul>"}`;
+    let html = `<div class="ej-list"> ${style === "ordered" ? "<ol>" : "<ul>"}`;
     _.forEach(items, (item) => {
       html += "<li>" + item + "</li>";
     });
