@@ -25,7 +25,6 @@ export const parse = (data: EditorJsDoc): string => {
 };
 
 function parseBlock(block?: Block<BlockTypes>): string {
-    console.log("parsing block: " , block)
   if (!block) return "";
   switch (block.type) {
     case BlockTypes.HEADER: {
